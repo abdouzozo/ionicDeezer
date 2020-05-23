@@ -17,24 +17,25 @@ export class HomePage {
   //artistSelected: Artist;
 
   constructor(public deezerService:DeezerService, public router:Router) {}
+
   onSearchArtist(event: any){
-    console.log('${this.TAG} onSearchArtist begin');
+    console.log(`${this.TAG} onSearchArtist begin`);
 
     let val:string = event.target.value;
-    console.log('${this.TAG} val ${val}');
+    console.log(`${this.TAG} val ${val}`);
 
     this.deezerService.getAuthors(val).then( (result :DataSearchArtist ) => {
-      console.log('${this.TAG} data=${JSON.stringify(result)}');
+      console.log(`${this.TAG} data=${JSON.stringify(result)}`);
       this.listArtist = result.data;
     } ).catch( (err) => {
-      console.log('${this.TAG} err=${JSON.stringify(err)}');
+      console.log(`${this.TAG} err=${JSON.stringify(err)}`);
     });
   }
 
-  onClickArtist(artist: Artist){
+  onClickArtist(artist: string){
     //this.artistSelected.name= artist;
-    console.log("onclick artist name is : " + artist.name);
-    this.router.navigate(['/list-album', artist.name]);//, {queryParams: {artist: this.artistSelected}});   //artist]);
+    console.log("onclick artist name is : " + artist);
+    this.router.navigate(['/list-album/' +artist]);//, {queryParams: {artist: this.artistSelected}});   //artist]);
     // this.DataSearchAlbum.artist= artist;
 }
 

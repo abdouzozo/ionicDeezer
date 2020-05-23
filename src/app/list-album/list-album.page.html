@@ -10,7 +10,7 @@
 
 <ion-content>
 
-  <ion-card *ngFor="let album of listAlbum" >
+  <ion-card *ngFor="let album of listAlbum" (click)="onClickAlbum(album)" >
     <img src="{{album.cover}}"/>
     <div class="class-title">{{album.title}}</div>
   </ion-card>

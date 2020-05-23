@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { DataSearchAlbum} from "../Models/data-search-album";
 import { DataSearchArtist} from "../Models/data-search-artist";
+import {DataSearchTrack} from "../Models/data-search-track";
 
 @Injectable({
   providedIn: 'root'
@@ -43,4 +44,19 @@ export class DeezerService {
     });
   }
 
+  getTracks(album: number):Promise<DataSearchTrack> {
+    console.log("getTrack album id is : " + album);
+
+    console.log(`${this.TAG} getTracks ${album}`);
+    const url: string = 'https://api.deezer.com/album/' + album + '/tracks';
+    console.log(`${this.TAG} url: ${url}`);
+    return new Promise(resolve => {
+      this.http.get(url).subscribe(data => {
+        let json: DataSearchTrack = data as DataSearchTrack;
+        resolve(json);
+      }, err => {
+        console.log(err);
+      });
+    });
+  }
 }

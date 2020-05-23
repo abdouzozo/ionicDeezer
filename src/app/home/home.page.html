@@ -13,7 +13,7 @@
       <ion-searchbar type="text" placeholder="Artiste" (keyup.enter)="onSearchArtist($event)"></ion-searchbar>
     </ion-toolbar>
 
-    <ion-card *ngFor="let artist of listArtist" (click) = "onClickArtist(artist)">
+    <ion-card *ngFor="let artist of listArtist" (click) = "onClickArtist(artist.name)">
       <img src="{{artist.picture_medium}}"/>
       <div class="class-title">{{artist.name}}</div>
     </ion-card>

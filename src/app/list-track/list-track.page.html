@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>list-track</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngFor="let track of listTrack"  >
+    <!--img src="{{track.cover}}"/-->
+    <div class="class-title">{{track.title}}</div>
+
+    <!--button ion-fab icon-only (click)="startAudio(track.preview); showToggleFun()" *ngIf="showToggle">
+      <ion-icon name="play"></ion-icon  >
+    </button>
+    <button-- ion-fab  (click)="stopAudio(track.preview); showToggleFun()" *ngIf="!showToggle" color="danger">
+      <ion-icon name="pause"></ion-icon>
+    </button-->
+    <ion-button (click)="startAudio(track.preview)">
+      <ion-icon name="play"></ion-icon>
+    </ion-button>
+    <ion-button (click)="stopAudio(track.preview)" >
+      <ion-icon name="pause"></ion-icon>
+    </ion-button>
+  </ion-card>
+</ion-content>
